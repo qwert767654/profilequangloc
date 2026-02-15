@@ -1,0 +1,60 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
+body { background: #000; color: #fff; overflow: hidden; height: 100vh; }
+
+.background-grid {
+    position: fixed; inset: 0;
+    background: linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px; z-index: 1;
+}
+
+.ocean { height: 120px; width: 100%; position: absolute; bottom: 0; z-index: 5; pointer-events: none; }
+.wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+    position: absolute; bottom: 0; width: 6400px; height: 100%;
+    filter: hue-rotate(180deg) brightness(1.5);
+    animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite; opacity: 0.5;
+}
+@keyframes wave { 0% { margin-left: 0; } 100% { margin-left: -1600px; } }
+
+.container {
+    position: relative; z-index: 10; height: 100vh;
+    display: flex; justify-content: space-around; align-items: center; padding: 0 5%;
+}
+
+.panel {
+    width: 300px; padding: 25px; background: rgba(0, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 255, 0.2); border-radius: 12px; backdrop-filter: blur(10px);
+}
+
+#main-name {
+    font-size: 50px; font-weight: 700; position: relative; text-shadow: 0 0 10px #0ff;
+}
+#main-name::before, #main-name::after {
+    content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+#main-name::before { left: 2px; text-shadow: -2px 0 #ff00c1; animation: glitch 2s infinite linear; }
+#main-name::after { left: -2px; text-shadow: 2px 0 #00fff9; animation: glitch 3s infinite linear reverse; }
+
+@keyframes glitch {
+    0% { clip: rect(10px, 9999px, 20px, 0); }
+    100% { clip: rect(40px, 9999px, 50px, 0); }
+}
+
+.avatar-frame { width: 200px; height: 200px; border-radius: 50%; border: 3px solid #0ff; overflow: hidden; margin: 0 auto 20px; box-shadow: 0 0 25px #0ff; }
+.avatar { width: 100%; height: 100%; object-fit: cover; }
+
+.social-links a { color: #fff; font-size: 26px; margin: 0 10px; transition: 0.3s; }
+.social-links a:hover { color: #0ff; transform: scale(1.2); }
+
+.bar { width: 100%; height: 8px; background: rgba(255,255,255,0.1); margin-top: 10px; border-radius: 4px; overflow: hidden; }
+.bar div { height: 100%; background: #0ff; transition: 1s linear; }
+
+.visualizer { display: flex; align-items: flex-end; justify-content: center; height: 35px; gap: 4px; margin: 15px 0; }
+.visualizer span { width: 6px; height: 5px; background: #0ff; border-radius: 2px; }
+.playing span { animation: dance 0.5s infinite alternate; }
+@keyframes dance { from { height: 5px; } to { height: 35px; } }
+
+#play-btn { width: 100%; padding: 12px; background: transparent; border: 1px solid #0ff; color: #0ff; cursor: pointer; font-weight: bold; }
+
+#boot-screen { position: fixed; inset: 0; background: #000; z-index: 1000; display: flex; align-items: center; justify-content: center; color: #0ff; font-size: 20px; }

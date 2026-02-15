@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUANGLOC | OS SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="boot-screen">
+    <div id="boot-text"></div>
+</div>
+
+<div class="background-grid"></div>
+
+<div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
+
+<div class="container">
+    <div class="panel moving-item" data-speed="0.03">
+        <h2 class="glow-text"><i class="fas fa-microchip"></i> HỆ THỐNG</h2>
+        <div class="stat">CPU <div class="bar"><div id="cpu"></div></div></div>
+        <div class="stat">RAM <div class="bar"><div id="ram"></div></div></div>
+        <div class="stat">NET <div class="bar"><div id="net"></div></div></div>
+    </div>
+
+    <div class="center-content moving-item" data-speed="0.08">
+        <div class="avatar-frame">
+            <img class="avatar" src="https://i.pinimg.com/736x/0c/1e/68/0c1e68c8d46dae6a08c6561be7b44b0e.jpg">
+        </div>
+        <h1 id="main-name" data-text="QUANGLOC">QUANGLOC</h1>
+        <div class="social-links">
+            <a href="https://www.facebook.com/yourfb" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div id="clock">00:00:00</div>
+    </div>
+
+    <div class="panel moving-item" data-speed="0.03">
+        <h2 class="glow-text"><i class="fas fa-music"></i> MUSIC PLAYER</h2>
+        <div class="music-box">
+            <p id="track-name">ĐANG CHỜ...</p>
+            <div class="visualizer" id="viz">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <button onclick="toggleMusic()" id="play-btn">MỞ NHẠC</button>
+        </div>
+    </div>
+</div>
+
+<audio id="bg-music" loop></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
