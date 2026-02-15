@@ -2,7 +2,7 @@
    QUẢN LÝ NHẠC TRONG FOLDER
    ========================================== */
 const folderNhac = "music/";    // Tên thư mục chứa nhạc
-const tenFileNhac = "quangloc.mp3"; // Tên file nhạc bên trong thư mục đó
+const tenFileNhac = "1.mp3"; // Tên file nhạc bên trong thư mục đó
 
 /* ========================================== */
 
@@ -57,4 +57,5 @@ function toggleMusic() {
         btn.innerText = "MỞ NHẠC";
         viz.classList.remove("playing");
     }
+
 }
